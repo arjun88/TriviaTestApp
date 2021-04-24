@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="summaryVM"
+            type="com.appscrip.triviaapp.viewmodel.SummaryVM" />
+    </data>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:background="@color/bg"
+    android:layout_height="match_parent"
+    tools:context=".view.SummaryActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{summaryVM.user}"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:textColor="@color/fontColor"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Here are the answers selected:"
+            android:textColor="@color/fontColor"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:background="@color/qBg"
+            android:text="@{summaryVM.q1}"
+            android:textColor="@color/fontColor"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:text="@{summaryVM.a1}"
+            android:textColor="@color/teal_700"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:text="@{summaryVM.q2}"
+            android:background="@color/qBg"
+            android:textColor="@color/fontColor"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@{summaryVM.a2}"
+            android:padding="16dp"
+            android:textColor="@color/teal_700"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                app:backgroundTint="@color/white"
+                android:onClick="@{(view) -> summaryVM.onClickHistory()}"
+                android:textColor="@color/primaryColor"
+                android:text="View History"/>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Finish"
+                android:textSize="12sp"
+                android:onClick="@{(view) -> summaryVM.onClickFinish()}"
+                android:layout_alignParentEnd="true"
+                app:backgroundTint="@color/teal_700"
+                android:textAllCaps="false"/>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</ScrollView>
+</layout>
